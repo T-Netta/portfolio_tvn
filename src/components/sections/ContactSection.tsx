@@ -9,17 +9,42 @@ export default function ContactSection() {
     message: "",
   })
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // For now, just simulate submit
-    console.log("Form submitted:", formData)
-    setSubmitted(true)
-    setFormData({ name: "", email: "", message: "" })
+    setError("")
+    setSubmitted(false)
+    setLoading(true)
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong")
+      }
+
+      setSubmitted(true)
+      setFormData({ name: "", email: "", message: "" })
+    } catch (err: any) {
+      console.error("Submission error:", err)
+      setError("Failed to send message. Please try again.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -30,11 +55,15 @@ export default function ContactSection() {
           Interested in working together or have a question? Send me a message!
         </p>
 
-        {/* Contact Form */}
+        {/* Success / Error Messages */}
         {submitted && (
           <p className="text-green-400 mb-6">Thank you! Your message has been sent.</p>
         )}
+        {error && (
+          <p className="text-red-400 mb-6">{error}</p>
+        )}
 
+        {/* Contact Form */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
           <input
             type="text"
@@ -66,9 +95,10 @@ export default function ContactSection() {
 
           <button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 transition px-6 py-3 rounded-lg font-medium mt-2"
+            disabled={loading}
+            className={`bg-blue-600 hover:bg-blue-700 transition px-6 py-3 rounded-lg font-medium mt-2 ${loading ? "opacity-70 cursor-not-allowed" : ""}`}
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
 

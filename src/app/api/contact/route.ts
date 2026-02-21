@@ -14,27 +14,33 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       )
     }
+    const cleanMessage = message
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
 
     // Create transporter for Gmail SMTP
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    })
+  host: "smtp.office365.com",
+  port: 587,
+  secure: false, // IMPORTANT
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+})
 
     // Define email content
     const mailOptions = {
-      from: email, // sender is user
+      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+      replyTo: email, // sender is user
       to: process.env.EMAIL_USER, // your portfolio email
       subject: `Portfolio Contact Form: ${name}`,
-      text: message,
-      html: `<p><strong>From:</strong> ${name} (${email})</p>
-             <p><strong>Message:</strong></p>
-             <p>${message}</p>`,
+      text: cleanMessage,
+      html: `
+      <p><strong>From:</strong> ${name} (${email})</p>
+      <p><strong>Message:</strong></p>
+      <p>${cleanMessage}</p>
+`,
     }
 
     // Send email
