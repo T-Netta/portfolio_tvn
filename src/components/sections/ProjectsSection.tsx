@@ -6,20 +6,28 @@ import Astronaut from "@/components/Astronaut"
 
 const projects = [
   {
-    title: "Responsive Web App",
+    title: "Mistral AI Assistant",
     description:
-      "Built with React and Tailwind, focusing on performance and responsive design.",
-    github: "https://github.com/T-Netta",
+      "Built with React and Tailwind, TypeScript, focusing on accurate and intelligent design. This assitant original started out as a simple lab project and now evolved into a clever and helpful portfolio Assitant.",
+    github: "https://github.com/T-Netta/portfolio_tvn",
     demo: null,
-    screenshot: "/screenshots/portfolio.png",
+    screenshot: "/screenshots/mistral.png",
   },
   {
     title: "Portfolio Website",
     description:
-      "This site itself built with Next.js, Tailwind, and AI features.",
+      "This site itself built with Next.js, JavaScript (React), TypeScript, HTML/Tailwind CSS, and AI features.",
     github: "https://github.com/T-Netta/portfolio_tn",
     demo: null,
     screenshot: "/screenshots/portfolio.png",
+  },
+   {
+    title: "Dogger - Arcade Style Game",
+    description:
+      "Built with JavaScript, HTML and CSS this classic arcade style game inspired by 'Frogger'",
+    github: "https://github.com/T-Netta/Dogger-Frogger-inspired-HTML-Game-",
+    demo: null,
+    screenshot: "/screenshots/Dogger.png",
   },
 ]
 

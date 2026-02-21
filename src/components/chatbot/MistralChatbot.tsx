@@ -55,7 +55,7 @@ export default function MistralChatbot() {
       {isOpen && (
         <div className="fixed bottom-20 right-6 w-96 bg-gray-900 text-white rounded-xl shadow-2xl z-50 flex flex-col">
           <div className="p-4 border-b border-gray-700 flex justify-between items-center">
-            <h2 className="font-semibold"> Nebula</h2>
+            <h2 className="font-semibold"> Quasar</h2>
             <button onClick={() => setIsOpen(false)}>✕</button>
           </div>
 
@@ -70,7 +70,7 @@ export default function MistralChatbot() {
                 }
               >
                 <strong>
-                  {msg.role === "user" ? "You: " : "Nebula: "}
+                  {msg.role === "user" ? "You: " : "Quasar: "}
                 </strong>
                 {msg.content}
               </div>
