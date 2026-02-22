@@ -13,7 +13,7 @@ const hobbies = [
   {
     title: "Gaming",
     description:
-      "I enjoy a variety of challenging activities and a big fan of Rogue-likes and Strategy games.",
+      "I enjoy a variety of challenging activities and I'm a big fan of Rogue-likes and Strategy games.",
     screenshot: "/screenshots/gaming.jpg",
   },
   {
