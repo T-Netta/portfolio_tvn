@@ -13,8 +13,8 @@ export default function AboutSection() {
 
         <p className="text-gray-400 text-lg leading-relaxed">
           I'm a programming student at Kean University with a strong interest in
-          full-stack web development and AI-Integrated applications. I enjoy building
-          responsive, scalable applications using modern tools like React, Next.js, and Tailwind CSS.
+          full-stack web development. I enjoy building responsive, scalable applications using modern tools
+          like React, Next.js, and Tailwind CSS.
         </p>
 
       </div>
