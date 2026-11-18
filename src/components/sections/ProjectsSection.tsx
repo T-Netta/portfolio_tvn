@@ -17,7 +17,7 @@ const projects = [
     title: "Portfolio Website",
     description:
       "This site itself built with Next.js, Tailwind, and AI features.",
-    github: "https://github.com/T-Netta/portfolio_tn",
+    github: "https://github.com/T-Netta/portfolio_tvn",
     demo: null,
     screenshot: "/screenshots/portfolio.png",
   },
