@@ -10,7 +10,7 @@ export default function Hero() {
         </h1>
 
         <p className="text-xl md:text-2xl text-gray-300 mb-8">
-           Developer | Full-Stack Enthusiast | AI Integration Experimenter
+           Developer | Full-Stack Enthusiast | Tech Experimenter
         </p>
 
         <div className="flex justify-center gap-4">
