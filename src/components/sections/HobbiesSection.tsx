@@ -5,14 +5,14 @@ import Astronaut from "@/components/Astronaut"
 
 const hobbies = [
   {
-    title: "AI & Emerging Tech",
+    title: "Emerging Tech",
     description:
-      "I enjoy exploring new AI tools, experimenting with APIs, and building intelligent applications.",
+      "I enjoy exploring new tools, experimenting with APIs, and building thoughtfully designed applications.",
   },
   {
     title: "Gaming",
     description:
-      "I enjoy a variety of challenging activites, as a big fan of Rogue-likes and Strategy games.",
+      "I enjoy a variety of challenging activites, such as Rogue-likes and Strategy games.",
   },
   {
     title: "Continuous Learning",
